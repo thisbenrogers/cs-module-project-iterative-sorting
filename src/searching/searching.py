@@ -16,8 +16,9 @@ def linear_search(arr, target):
 # ? - O(log n)
 
 def binary_search(arr, target):
-
-    # Your code here
+    if len(arr) == 0:
+        return -1
+    
     low = 0
     high = len(arr) - 1
     while low <= high:
