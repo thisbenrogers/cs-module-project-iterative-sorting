@@ -3,9 +3,9 @@
 
 def linear_search(arr, target):
     # Your code here
-    for i in range(len(arr)):
-        if arr[i] == target:
-            return i
+    for index, value in enumerate(arr):
+        if value == target:
+            return index
         
 
 
