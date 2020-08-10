@@ -18,18 +18,16 @@ def linear_search(arr, target):
 def binary_search(arr, target):
 
     # Your code here
-    left = 0
-    right = len(arr) - 1
-    while left <= right:
-        middle = (left + right) // 2
-        if arr[middle] == target:
-            return middle
-        elif arr[middle] > target:
-            # search to the right
-            right = middle - 1
-        else:
-            # search to the left
-            left = middle + 1
+    low = 0
+    high = len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        if arr[mid] < target:
+            low = mid + 1
+            continue
+        high = mid
 
 
     return -1  # not found
