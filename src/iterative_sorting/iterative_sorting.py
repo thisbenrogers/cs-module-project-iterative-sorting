@@ -1,25 +1,39 @@
-# TO-DO: Complete the selection_sort() function below
+
+# * Complete the selection_sort() function below
+# ? - O(n²)
+
 def selection_sort(arr):
-    # loop through n-1 elements
-    for i in range(0, len(arr) - 1):
-        cur_index = i
-        smallest_index = cur_index
-        # TO-DO: find next smallest element
-        # (hint, can do in 3 loc)
+
+    # * loop through n-1 elements
+    for index, value in enumerate(arr):
+        target = index
+        # * find next smallest element
+        # * (hint, can do in 3 loc)
         # Your code here
+        for j in range(index + 1, len(arr)):
+            if arr[target] > arr[j]:
+                target = j
 
 
-        # TO-DO: swap
+
+        # * swap
         # Your code here
+        arr[index], arr[target] = arr[target], value
 
     return arr
 
 
-# TO-DO:  implement the Bubble Sort function below
+# *  implement the Bubble Sort function below
+# ? - O(n²)
+
 def bubble_sort(arr):
-    # Your code here
-
-
+    underway = True
+    while underway:
+        underway = False
+        for i in range(len(arr) - 1):
+            if arr[i] > arr[i + 1]:
+                arr[i], arr[i + 1] = arr[i + 1], arr[i]
+                underway = True
     return arr
 
 '''
@@ -37,10 +51,25 @@ Once we know exactly how many times each piece of data in the input set
 showed up, we can construct a sorted set of the input data from the 
 buckets. 
 
-What is the time and space complexity of the counting sort algorithm?
+# ? What is the time and space complexity of the counting sort algorithm?
+# ? 
+# ?  - -  O(n + r) where 'r' is the range of positive integer key values 
+# ? 
 '''
 def counting_sort(arr, maximum=None):
     # Your code here
+    if len(arr) == 0:
+        return arr
+    if min(arr) < 0:
+        return "Error, negative numbers not allowed in Count Sort"
 
-
+    maxxx = maximum + 1
+    buckets = [0] * maxxx
+    for i in arr:
+        buckets[i] += 1
+    tally = 0
+    for i in range(maxxx):
+        for j in range(buckets[i]):
+            arr[tally] = i
+            tally += 1
     return arr
