@@ -1,4 +1,3 @@
-import time
 
 # * Complete the selection_sort() function below
 # ? - O(n²)
@@ -29,12 +28,13 @@ def selection_sort(arr):
 # ? - O(n²)
 
 def bubble_sort(arr):
-    l = len(arr)
-    for i in range(l - 1):
-        for p in range(0, l - i - 1):
-            if arr[p] > arr[p + 1]:
-                arr[p], arr[p + 1] = arr[p + 1], arr[p]
-
+    underway = True
+    while underway:
+        underway = False
+        for i in range(len(arr) - 1):
+            if arr[i] > arr[i + 1]:
+                arr[i], arr[i + 1] = arr[i + 1], arr[i]
+                underway = True
     return arr
 
 '''
